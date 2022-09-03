@@ -11,8 +11,12 @@ app.use(cors({ origin: "*" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
+app.get("/hello", (req, res) => {
   res.send("Hello World!");
+});
+
+app.get("/", (req, res) => {
+  res.send({ version: process.env.VERSION });
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
